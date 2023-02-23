@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/activities")
+@CrossOrigin
 public class ActivityController {
 
     private final ActivityService activityService;
