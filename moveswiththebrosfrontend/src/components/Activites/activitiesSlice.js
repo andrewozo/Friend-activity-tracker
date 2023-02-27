@@ -15,6 +15,21 @@ export const fetchAllActivities = createAsyncThunk(
   }
 );
 
+export const fetchSingleActivity = createAsyncThunk(
+  "fetchSingleActivtiy",
+  async (id) => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:8080/activities/${id}`
+      );
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const activitiesSlice = createSlice({
   name: "activites",
   initialState,
@@ -22,6 +37,9 @@ const activitiesSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchAllActivities.fulfilled, (state, action) => {
       state.allActivities = action.payload;
+    });
+    builder.addCase(fetchSingleActivity.fulfilled, (state, action) => {
+      state.singleActivity = action.payload;
     });
   },
 });
