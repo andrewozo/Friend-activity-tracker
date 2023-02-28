@@ -48,8 +48,9 @@ function Main() {
                 variant="h6"
                 component="div"
                 sx={{ flexGrow: 1 }}
+                align="center"
               >
-                <Link to="/" >Meadows Moves</Link>
+                <Link to="/">Meadows Moves</Link>
               </Typography>
 
               <Button color="secondary">Add New</Button>

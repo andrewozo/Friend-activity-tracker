@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function Activities() {
   const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#edf6f9",
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#f0efeb",
     ...theme.typography.body2,
     padding: theme.spacing(2),
     textAlign: "center",
@@ -38,7 +38,7 @@ function Activities() {
 
   useEffect(() => {
     dispatch(fetchAllActivities());
-  }, []);
+  }, [dispatch]);
 
   console.log(activities);
   return (
