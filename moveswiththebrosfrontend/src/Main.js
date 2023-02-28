@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Activities from "./components/Activites/Activities";
 import SingleActivity from "./components/Activites/SingleActivity";
+import PostActivity from "./components/Activites/PostActivity";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -53,7 +54,9 @@ function Main() {
                 <Link to="/">Meadows Moves</Link>
               </Typography>
 
-              <Button color="secondary">Add New</Button>
+              <Button color="secondary">
+                <Link to="/newActivity">Add New</Link>
+              </Button>
             </Toolbar>
           </AppBar>
         </Box>
@@ -61,6 +64,7 @@ function Main() {
       <Routes>
         <Route path="/" element={<Activities />} />
         <Route path="/:id" element={<SingleActivity />} />
+        <Route path="/newActivity" element={<PostActivity />} />
       </Routes>
     </div>
   );
