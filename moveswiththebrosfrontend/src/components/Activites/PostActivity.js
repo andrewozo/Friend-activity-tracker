@@ -122,7 +122,7 @@ function PostActivity() {
 
         <div style={{ paddingTop: "25px" }}>
           <Button type="submit" variant="contained">
-            submit
+            Submit
           </Button>
         </div>
       </form>
