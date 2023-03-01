@@ -32,15 +32,18 @@ export const fetchSingleActivity = createAsyncThunk(
 
 export const addNewActivity = createAsyncThunk(
   "addNewActivity",
-  async (incomingData) => {
+  async ({ spotName, amount, putCardDown, date }) => {
     try {
-      const { data } = await axios.post(
-        "http://localhost:8080/activities",
-        incomingData
-      );
+      console.log({ spotName, amount, putCardDown, date });
+      const { data } = await axios.post("http://localhost:8080/activities", {
+        spotName,
+        amount,
+        putCardDown,
+        date,
+      });
       return data;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 );

@@ -11,14 +11,14 @@ public class Activity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "activity_sequence")
     private Long id;
     private String spotName;
-    private LocalDate date;
+    private String date;
     private double amount;
     private String putCardDown;
 
     public Activity() {
     }
 
-    public Activity(String spotName, LocalDate date, double amount, String putCardDown) {
+    public Activity(String spotName, String date, double amount, String putCardDown) {
         this.spotName = spotName;
         this.date = date;
         this.amount = amount;
@@ -41,11 +41,11 @@ public class Activity {
         this.spotName = spotName;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

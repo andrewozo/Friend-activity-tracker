@@ -14,9 +14,9 @@ public class ActivityConfig {
     CommandLineRunner commandLineRunner(ActivityRepository activityRepository){
         return args -> {
             Activity gyu = new Activity(
-                    "Gyu Kaku", LocalDate.of(2023, Month.FEBRUARY,03),103.75,"Julio"
+                    "Gyu Kaku","02/03/2023",103.75,"Julio"
             );
-            Activity kyu = new Activity("Kyu Ramen",LocalDate.of(2023,Month.JANUARY,22),65.50,"Andrew");
+            Activity kyu = new Activity("Kyu Ramen","01/01/2023",65.50,"Andrew");
            activityRepository.saveAll(List.of(gyu,kyu));
         };
     }
