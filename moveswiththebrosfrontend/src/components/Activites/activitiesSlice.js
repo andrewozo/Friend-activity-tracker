@@ -48,6 +48,18 @@ export const addNewActivity = createAsyncThunk(
   }
 );
 
+export const deleteActivity = createAsyncThunk("deleteActivity", async (id) => {
+  try {
+    const { data } = await axios.delete(
+      `http://localhost:8080/activities/${id}`
+    );
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const activitiesSlice = createSlice({
   name: "activites",
   initialState,
@@ -61,6 +73,9 @@ const activitiesSlice = createSlice({
     });
     builder.addCase(addNewActivity.fulfilled, (state, action) => {
       state.allActivities.push(action.payload);
+    });
+    builder.addCase(deleteActivity.fulfilled, (state, action) => {
+      state.singleActivity = action.payload;
     });
   },
 });

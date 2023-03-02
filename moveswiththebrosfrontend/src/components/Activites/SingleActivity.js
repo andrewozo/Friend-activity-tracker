@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { fetchSingleActivity } from "./activitiesSlice";
+import { useParams, useNavigate } from "react-router-dom";
+import { fetchSingleActivity, deleteActivity } from "./activitiesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Typography,
@@ -16,6 +16,8 @@ function SingleActivity() {
   const { id } = useParams();
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const activity = useSelector((state) => state.activities.singleActivity);
 
@@ -84,10 +86,15 @@ function SingleActivity() {
             </Typography>
             <Box textAlign="center" sx={{ paddingTop: "50px" }}>
               <Button
+                type="delete"
                 color="secondary"
                 variant="contained"
                 startIcon={<DeleteIcon />}
                 sx={{ justifyContent: "center" }}
+                onClick={async () => {
+                  await dispatch(deleteActivity(activity.id));
+                  navigate("/");
+                }}
               >
                 <Typography
                   color="primary"
