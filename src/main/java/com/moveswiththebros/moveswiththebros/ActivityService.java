@@ -28,4 +28,13 @@ public class ActivityService {
         activityRepository.save(activity);
 
     }
+
+    public void deleteActivity(Long activityId) {
+        boolean exists = activityRepository.existsById(activityId);
+
+        if (!exists){
+            throw new IllegalStateException(("student with id " + activityId + " doesnt exist"));
+        }
+        activityRepository.deleteById(activityId);
+    }
 }

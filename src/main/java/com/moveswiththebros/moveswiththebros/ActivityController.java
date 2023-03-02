@@ -29,4 +29,9 @@ public class ActivityController {
 
     @PostMapping
     public void addActivity(@RequestBody Activity activity){activityService.addNewActivity(activity);}
+
+    @DeleteMapping(path = "{activityId}")
+    public void deleteActivity(@PathVariable("activityId") Long activityId){
+        activityService.deleteActivity(activityId);
+    }
 }
