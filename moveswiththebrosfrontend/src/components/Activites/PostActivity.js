@@ -12,6 +12,7 @@ import {
 import { addNewActivity } from "./activitiesSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ImageUpload from "./ImageUpload";
 
 function PostActivity() {
   const dispatch = useDispatch();
@@ -146,6 +147,9 @@ function PostActivity() {
                 </Paper>
               </FormControl>
             </Stack>
+            <div>
+              <ImageUpload />
+            </div>
 
             <div style={{ paddingTop: "25px" }}>
               <Button type="submit" variant="contained" sx={{ width: "25%" }}>
